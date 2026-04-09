@@ -1,6 +1,6 @@
 # 26-1 빅데이터개론 중간 팀 프로젝트
 
-## 기초 세팅
+## 기초 세팅 (Mac 환경)
 
 1. git clone https://github.com/uone0628/BigDataTeamProject.git
 
