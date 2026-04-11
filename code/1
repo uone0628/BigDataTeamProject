@@ -1,0 +1,29 @@
+import pandas as pd
+
+df = pd.read_csv('data/Student_data.csv')
+
+df['diff'] = df['Final_CGPA'] - df['Previous_CGPA']
+df['abs_diff'] = df['diff'].abs()
+
+items = ['Study_Hours_Per_Day', 'Sleep_Hours', 'Attendance_Pct', 'Social_Hours_Week']
+
+
+small_diff = df[(df['abs_diff'] <= 0.2)]
+cutoff = small_diff['Final_CGPA'].quantile(0.85)
+steady_high = small_diff[small_diff['Final_CGPA'] >= cutoff]
+
+
+large_diff_drop = df[(df['abs_diff'] >= 0.5) & (df['diff'] < 0)]
+
+
+large_diff_rise = df[(df['abs_diff'] >= 0.5) & (df['diff'] > 0)]
+
+
+print("1. [꾸준히 높은 그룹 (편차 0.2 & 상위 15%)]")
+print(steady_high[items].mean().round(2))
+
+print("\n2. [하락한 그룹 (편차 0.5 이상)]")
+print(large_diff_drop[items].mean().round(2))
+
+print("\n3. [상승한 그룹 (편차 0.5 이상)]")
+print(large_diff_rise[items].mean().round(2))

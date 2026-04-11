@@ -27,3 +27,4 @@ print(df.columns.tolist())
 # # 5개 다시 확인
 # print("필요한 컬럼만 뽑은 결과:")
 # print(df_clean.head())
+
