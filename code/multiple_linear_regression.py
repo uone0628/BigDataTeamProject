@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 import platform
 
 # ============================================================
-# [필수] 한글 폰트 깨짐 방지 설정
+# 한글 폰트 깨짐 방지 설정
 # ============================================================
 if platform.system() == 'Darwin': # Mac 환경
     plt.rc('font', family='AppleGothic')

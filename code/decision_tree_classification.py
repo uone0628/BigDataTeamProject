@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 import platform
 
 # ============================================================
-# [필수] 한글 폰트 깨짐 방지 설정
+# 한글 폰트 깨짐 방지 설정
 # ============================================================
 if platform.system() == 'Darwin':
     plt.rc('font', family='AppleGothic')
